@@ -54,7 +54,21 @@
     <!-- CREDIT CARD -->
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
 
-      <img src="dashboard.png" class="rounded-xl mb-4">
+      <div class="relative group mb-4">
+
+  <!-- IMAGE -->
+  <img src="dashboard.png" class="rounded-xl group-hover:hidden">
+
+  <!-- VIDEO PREVIEW -->
+  <video 
+    src="preview.mp4" 
+    muted 
+    loop 
+    playsinline
+    class="rounded-xl hidden group-hover:block"
+  ></video>
+
+</div>
 
       <h3 class="text-xl font-semibold">Credit Card Analysis</h3>
       <p class="text-gray-400 mt-2">SQL + Power BI dashboard</p>
@@ -70,6 +84,7 @@
       </div>
 
     </div>
+    
 
     <!-- WALMART -->
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
@@ -94,13 +109,22 @@
   </div>
 </section>
 
-  <!-- VIDEO MODAL -->
-<div id="videoModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-  <div class="bg-gray-900 p-4 rounded-xl w-11/12 md:w-3/4 relative">
+<!-- PREMIUM VIDEO MODAL -->
+<div id="videoModal" 
+     class="hidden fixed inset-0 backdrop-blur-lg bg-black/70 flex items-center justify-center z-50 transition">
 
-    <button onclick="closeVideo()" class="absolute top-2 right-2 text-white text-xl">✖</button>
+  <div id="modalContent" 
+       class="bg-gray-900 p-4 rounded-xl w-11/12 md:w-3/4 transform translate-y-10 opacity-0 transition duration-500 relative">
 
-    <iframe id="videoFrame" class="w-full h-96 rounded-xl"
+    <!-- CLOSE -->
+    <button onclick="closeVideo()" 
+      class="absolute top-2 right-2 text-white text-2xl hover:text-red-400">
+      ✖
+    </button>
+
+    <!-- VIDEO -->
+    <iframe id="videoFrame" 
+      class="w-full h-96 rounded-xl"
       src=""
       frameborder="0"
       allowfullscreen>
@@ -108,25 +132,39 @@
 
   </div>
 </div>
-
-  <script>
+  
+<script>
   function openVideo(type) {
-    document.getElementById("videoModal").classList.remove("hidden");
+    const modal = document.getElementById("videoModal");
+    const content = document.getElementById("modalContent");
+
+    modal.classList.remove("hidden");
+
+    setTimeout(() => {
+      content.classList.remove("translate-y-10", "opacity-0");
+    }, 50);
 
     if (type === "credit") {
       document.getElementById("videoFrame").src =
-        "https://youtu.be/3YlekEZn6SY";
+        "https://www.youtube.com/embed/3YlekEZn6SY?autoplay=1";
     }
 
     if (type === "walmart") {
       document.getElementById("videoFrame").src =
-        "https://youtu.be/3YlekEZn6SY";
+        "https://www.youtube.com/embed/3YlekEZn6SY?autoplay=1";
     }
   }
 
   function closeVideo() {
-    document.getElementById("videoModal").classList.add("hidden");
-    document.getElementById("videoFrame").src = "";
+    const modal = document.getElementById("videoModal");
+    const content = document.getElementById("modalContent");
+
+    content.classList.add("translate-y-10", "opacity-0");
+
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      document.getElementById("videoFrame").src = "";
+    }, 300);
   }
 </script>
 

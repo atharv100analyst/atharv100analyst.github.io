@@ -161,7 +161,12 @@
       document.getElementById("videoFrame").src =
         "https://www.youtube.com/embed/3YlekEZn6SY?autoplay=1";
     }
-  }
+
+    if (type === "tableau") {
+  document.getElementById("videoFrame").src =
+    "https://www.youtube.com/embed/zSfvKLgnNjQ?autoplay=1";
+    }
+  } 
 
   function closeVideo() {
     const modal = document.getElementById("videoModal");
@@ -225,8 +230,8 @@
 
   </div>
 
-</div>   
-
+</div>  
+ 
 
   <!-- CONTACT -->
   <section id="contact" class="py-20 text-center">

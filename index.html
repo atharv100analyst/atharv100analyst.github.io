@@ -12,14 +12,36 @@
 
 <body class="bg-gray-900 text-white">
 
+  <nav id="navbar" 
+class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 transition duration-300">
+
+  <!-- LOGO -->
+  <a href="#" 
+     class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+    Atharv Sahare
+  </a>
+
+  <!-- LINKS -->
+  <div class="space-x-6 text-gray-300">
+    <a href="#projects" class="hover:text-blue-400">Projects</a>
+    <a href="#contact" class="hover:text-blue-400">Contact</a>
+  </div>
+
+<body class="bg-gray-900 text-white pt-20">
+
   <!-- NAVBAR -->
-  <nav class="flex justify-between items-center p-6">
-    <h1 class="text-xl font-bold">Atharv Sahare</h1>
-    <div class="space-x-6">
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 transition duration-300">
+    <a href="#" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+      Atharv Sahare
+    </a>
+
+    <div class="space-x-6 text-gray-300">
       <a href="#projects" class="hover:text-blue-400">Projects</a>
       <a href="#contact" class="hover:text-blue-400">Contact</a>
     </div>
   </nav>
+
+  <!-- YOUR CONTENT HERE -->
 
   <!-- HERO -->
   <section class="h-screen flex flex-col justify-center items-center text-center">
@@ -322,7 +344,26 @@ function closeVideo() {
     document.getElementById("videoFrame").src = "";
   }, 300);
 }
-</script>
+  <!-- SCRIPT ALWAYS AT BOTTOM -->
+  <script>
+    window.addEventListener("scroll", function () {
+      const nav = document.getElementById("navbar");
+
+      if (window.scrollY > 50) {
+        nav.classList.add(
+          "bg-gray-900/70",
+          "backdrop-blur-md",
+          "shadow-lg"
+        );
+      } else {
+        nav.classList.remove(
+          "bg-gray-900/70",
+          "backdrop-blur-md",
+          "shadow-lg"
+        );
+      }
+    });
+  </script>
 
 </body>
 </html>

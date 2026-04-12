@@ -1,30 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Credit Card Project</title>
+  <meta charset="UTF-8">
+  <title>Credit Card Analysis</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-900 text-white p-10">
+<body class="bg-gray-900 text-white">
 
-  <h1 class="text-3xl font-bold mb-6">Credit Card Customer Analysis</h1>
+  <!-- CONTAINER -->
+  <div class="max-w-5xl mx-auto p-6">
 
-  <img src="dashboard.png" class="rounded-xl mb-6">
+    <!-- TITLE -->
+    <h1 class="text-4xl font-bold mb-6">💳 Credit Card Customer Analysis</h1>
 
-  <p class="text-gray-400 mb-4">
-    This project analyzes customer spending behavior using SQL and Power BI.
-  </p>
+    <!-- IMAGE (FIXED SIZE) -->
+    <div class="w-full max-h-[400px] overflow-hidden rounded-xl mb-6 shadow-lg">
+      <img src="dashboard.png" class="w-full h-full object-cover">
+    </div>
 
-  <h2 class="text-xl font-semibold mt-6">Tools Used</h2>
-  <ul class="text-gray-400 list-disc ml-6">
-    <li>SQL</li>
-    <li>Power BI</li>
-    <li>Data Visualization</li>
-  </ul>
+    <!-- DESCRIPTION -->
+    <p class="text-gray-400 text-lg mb-6">
+      This project analyzes customer spending behavior using SQL and Power BI.
+      It provides insights into revenue trends, customer segmentation, and transaction patterns.
+    </p>
 
-  <a href="index.html" class="inline-block mt-6 bg-gray-600 px-4 py-2 rounded-lg">
-    ← Back
-  </a>
+    <!-- TOOLS -->
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold mb-3">🛠 Tools Used</h2>
+      <ul class="list-disc ml-6 text-gray-400 space-y-1">
+        <li>SQL</li>
+        <li>Power BI</li>
+        <li>Data Visualization</li>
+      </ul>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold mb-3">📊 Key Insights</h2>
+      <ul class="list-disc ml-6 text-gray-400 space-y-1">
+        <li>Revenue analysis by customer segments</li>
+        <li>Spending trends across categories</li>
+        <li>Transaction volume analysis</li>
+        <li>Customer profiling</li>
+      </ul>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="flex gap-4 mt-6">
+
+      <!-- GITHUB BUTTON -->
+      <a href="https://github.com/atharv100analyst/Credit-Card-Data-Visualization" 
+         target="_blank"
+         class="bg-gray-700 px-5 py-2 rounded-lg hover:bg-gray-600">
+        🔗 View GitHub
+      </a>
+
+      <!-- WATCH DEMO -->
+      <button onclick="openVideo()" 
+        class="bg-purple-500 px-5 py-2 rounded-lg hover:bg-purple-600">
+        ▶ Watch Demo
+      </button>
+
+      <!-- BACK -->
+      <a href="index.html" 
+         class="bg-blue-500 px-5 py-2 rounded-lg hover:bg-blue-600">
+        ← Back
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <div id="videoModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+
+    <div class="bg-gray-900 p-4 rounded-xl w-11/12 md:w-3/4 relative">
+
+      <button onclick="closeVideo()" class="absolute top-2 right-2 text-white text-xl">✖</button>
+
+      <iframe id="videoFrame"
+        class="w-full h-96 rounded-xl"
+        src=""
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script>
+    function openVideo() {
+      document.getElementById("videoModal").classList.remove("hidden");
+      document.getElementById("videoFrame").src =
+        "https://www.youtube.com/embed/3YlekEZn6SY?autoplay=1";
+    }
+
+    function closeVideo() {
+      document.getElementById("videoModal").classList.add("hidden");
+      document.getElementById("videoFrame").src = "";
+    }
+  </script>
 
 </body>
 </html>

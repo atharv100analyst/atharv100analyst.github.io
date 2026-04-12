@@ -99,51 +99,46 @@
 </div>
     
 
-    <!-- WALMART -->
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+ <!-- WALMART PROJECT -->
+<div class="relative group rounded-2xl overflow-hidden bg-gray-800 shadow-lg transition duration-300 hover:scale-110 hover:z-10">
 
-      <img src="walmart.png" class="rounded-xl mb-4">
+  <!-- MEDIA CONTAINER -->
+  <div class="relative w-full aspect-video overflow-hidden">
 
-      <h3 class="text-xl font-semibold">Walmart Sales Analysis</h3>
-      <p class="text-gray-400 mt-2">SQL + Python</p>
+    <!-- IMAGE -->
+    <img src="walmart.png"
+         class="w-full h-full object-cover transition duration-500 group-hover:scale-110 group-hover:opacity-40">
 
-      <div class="flex gap-4 mt-4">
-        <a href="project2.html" class="bg-green-500 px-4 py-2 rounded-lg text-sm">
-          Details
-        </a>
+    <!-- GRADIENT OVERLAY -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-        <button onclick="openVideo('walmart')" class="bg-purple-500 px-4 py-2 rounded-lg text-sm">
-          Watch Demo
-        </button>
-      </div>
+  </div>
+
+  <!-- CONTENT (SHOW ON HOVER) -->
+  <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition duration-500">
+
+    <h3 class="text-lg font-semibold">Walmart Sales Analysis</h3>
+    <p class="text-sm text-gray-300">SQL + Data Analysis</p>
+
+    <div class="flex gap-3 mt-3">
+
+      <!-- VIEW ANALYSIS -->
+      <a href="project2.html"
+         class="bg-green-500 px-3 py-1 rounded text-sm hover:bg-green-600">
+        📊 View Analysis
+      </a>
+
+      <!-- GITHUB -->
+      <a href="https://github.com/atharv100analyst/walmart-sql-data-analysis"
+         target="_blank"
+         class="bg-gray-700 px-3 py-1 rounded text-sm hover:bg-gray-600">
+        🔗 GitHub
+      </a>
 
     </div>
 
   </div>
-</section>
 
-<!-- PREMIUM VIDEO MODAL -->
-<div id="videoModal" 
-     class="hidden fixed inset-0 backdrop-blur-lg bg-black/70 flex items-center justify-center z-50 transition">
-
-  <div id="modalContent" 
-       class="bg-gray-900 p-4 rounded-xl w-11/12 md:w-3/4 transform translate-y-10 opacity-0 transition duration-500 relative">
-
-    <!-- CLOSE -->
-    <button onclick="closeVideo()" 
-      class="absolute top-2 right-2 text-white text-2xl hover:text-red-400">
-      ✖
-    </button>
-
-    <!-- VIDEO -->
-    <iframe id="videoFrame" 
-      class="w-full h-96 rounded-xl"
-      src=""
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-
-  </div>
 </div>
   
 <script>

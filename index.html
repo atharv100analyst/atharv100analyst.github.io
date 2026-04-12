@@ -46,53 +46,89 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="p-10">
-    <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+<section id="projects" class="p-10">
+  <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
 
-    <div class="grid md:grid-cols-2 gap-8">
+  <div class="grid md:grid-cols-2 gap-8">
 
-      <!-- CREDIT CARD PROJECT -->
-      <a href="https://github.com/atharv100analyst/Credit-Card-Data-Visualization" target="_blank">
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-blue-500/30 transition duration-300 cursor-pointer">
+    <!-- CREDIT CARD -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
 
-          <img src="dashboard.png" alt="Credit Card Dashboard" class="rounded-xl mb-4">
+      <img src="dashboard.png" class="rounded-xl mb-4">
 
-          <h3 class="text-xl font-semibold">Credit Card Customer Analysis</h3>
-          <p class="text-gray-400 mt-2">
-            SQL + Power BI dashboard with customer insights
-          </p>
+      <h3 class="text-xl font-semibold">Credit Card Analysis</h3>
+      <p class="text-gray-400 mt-2">SQL + Power BI dashboard</p>
 
-          <div class="mt-4">
-            <span class="bg-blue-500 px-4 py-2 rounded-lg text-sm">
-              View Project →
-            </span>
-          </div>
+      <div class="flex gap-4 mt-4">
+        <a href="project1.html" class="bg-blue-500 px-4 py-2 rounded-lg text-sm">
+          Details
+        </a>
 
-        </div>
-      </a>
-
-      <!-- WALMART PROJECT -->
-      <a href="https://github.com/atharv100analyst/walmart-sql-data-analysis" target="_blank">
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-green-500/30 transition duration-300 cursor-pointer">
-
-          <img src="walmart.png" alt="Walmart Analysis" class="rounded-xl mb-4">
-
-          <h3 class="text-xl font-semibold">Walmart Sales Analysis</h3>
-          <p class="text-gray-400 mt-2">
-            SQL + Python analysis of Walmart sales data
-          </p>
-
-          <div class="mt-4">
-            <span class="bg-green-500 px-4 py-2 rounded-lg text-sm">
-              View Project →
-            </span>
-          </div>
-
-        </div>
-      </a>
+        <button onclick="openVideo('credit')" class="bg-purple-500 px-4 py-2 rounded-lg text-sm">
+          Watch Demo
+        </button>
+      </div>
 
     </div>
-  </section>
+
+    <!-- WALMART -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+
+      <img src="walmart.png" class="rounded-xl mb-4">
+
+      <h3 class="text-xl font-semibold">Walmart Sales Analysis</h3>
+      <p class="text-gray-400 mt-2">SQL + Python</p>
+
+      <div class="flex gap-4 mt-4">
+        <a href="project2.html" class="bg-green-500 px-4 py-2 rounded-lg text-sm">
+          Details
+        </a>
+
+        <button onclick="openVideo('walmart')" class="bg-purple-500 px-4 py-2 rounded-lg text-sm">
+          Watch Demo
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- VIDEO MODAL -->
+<div id="videoModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+  <div class="bg-gray-900 p-4 rounded-xl w-11/12 md:w-3/4 relative">
+
+    <button onclick="closeVideo()" class="absolute top-2 right-2 text-white text-xl">✖</button>
+
+    <iframe id="videoFrame" class="w-full h-96 rounded-xl"
+      src=""
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+</div>
+
+  <script>
+  function openVideo(type) {
+    document.getElementById("videoModal").classList.remove("hidden");
+
+    if (type === "credit") {
+      document.getElementById("videoFrame").src =
+        "https://youtu.be/3YlekEZn6SY";
+    }
+
+    if (type === "walmart") {
+      document.getElementById("videoFrame").src =
+        "https://youtu.be/3YlekEZn6SY";
+    }
+  }
+
+  function closeVideo() {
+    document.getElementById("videoModal").classList.add("hidden");
+    document.getElementById("videoFrame").src = "";
+  }
+</script>
 
   <!-- CONTACT -->
   <section id="contact" class="py-20 text-center">

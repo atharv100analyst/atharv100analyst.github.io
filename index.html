@@ -29,30 +29,36 @@ class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-
 
 <body class="bg-gray-900 text-white pt-20">
 
-  <!-- NAVBAR -->
-  <nav class="flex justify-between items-center p-6">
-    <h1 class="text-xl font-bold">Atharv Sahare</h1>
+<!-- NAVBAR -->
+<nav id="navbar" class="flex justify-between items-center p-6 fixed top-0 w-full z-50 bg-gray-900">
 
-    <div class="space-x-6">
-      <a href="#projects" class="hover:text-blue-400">Projects</a>
-      <a href="#contact" class="hover:text-blue-400">Contact</a>
-    </div>
-  </nav>
+  <h1 class="text-xl font-bold">Atharv Sahare</h1>
+
+  <div class="space-x-6">
+    <a href="#projects" class="hover:text-blue-400">Projects</a>
+    <a href="#contact" class="hover:text-blue-400">Contact</a>
+  </div>
+
+</nav>
 
 
-  <!-- HERO -->
-  <section class="h-screen flex flex-col justify-center items-center text-center">
-    <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-      Hi, I'm Atharv 👋
-    </h1>
-    <p class="text-xl text-gray-400 mb-6">
-      Data Analyst | SQL | Python | Power BI
-    </p>
+<!-- HERO -->
+<section class="h-screen flex flex-col justify-center items-center text-center">
 
-    <a href="#projects" class="bg-blue-500 px-6 py-3 rounded-xl hover:bg-blue-600 transition">
-      View Projects
-    </a>
-  </section>
+  <h1 class="text-5xl font-bold mb-4">
+    Hi, I'm Atharv 👋
+  </h1>
+
+  <p class="text-xl text-gray-400 mb-6">
+    Data Analyst | SQL | Python | Power BI
+  </p>
+
+  <a href="#projects"
+     class="bg-blue-500 px-6 py-3 rounded-xl hover:bg-blue-600 transition">
+    View Projects
+  </a>
+
+</section>
 
   <!-- ABOUT -->
   <section class="py-20 px-6 text-center">
@@ -341,7 +347,7 @@ function closeVideo() {
     document.getElementById("videoFrame").src = "";
   }, 300);
 }
-  
+  </script>
 </body>
 </html>
 

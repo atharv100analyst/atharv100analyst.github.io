@@ -1,0 +1,72 @@
+<h2 class="text-2xl font-semibold mt-8">💳 Payment Method Analysis</h2>
+
+<p class="text-gray-400 mt-2">
+Analyzed number of transactions and quantity sold by each payment method.
+</p>
+
+<pre class="bg-black p-4 rounded-lg text-green-400 mt-3 overflow-x-auto text-sm">
+SELECT 
+    payment_method,
+    COUNT(*) AS no_payments,
+    SUM(quantity) AS no_qty_sold
+FROM walmart_db.walmart
+GROUP BY payment_method;
+</pre>
+
+<img src="payment_analysis.png" class="rounded-xl mt-4 shadow-lg">
+
+<p class="text-gray-400 mt-2">
+💡 Insight: E-wallet and cash are the most frequently used payment methods.
+</p>
+
+<h2 class="text-2xl font-semibold mt-10">⭐ Highest Rated Category</h2>
+
+<p class="text-gray-400 mt-2">
+Identified top-rated product category in each branch using window functions.
+</p>
+
+<pre class="bg-black p-4 rounded-lg text-green-400 mt-3 overflow-x-auto text-sm">
+SELECT branch, category, avg_rating
+FROM (
+    SELECT 
+        branch,
+        category,
+        AVG(rating) AS avg_rating,
+        RANK() OVER (PARTITION BY branch ORDER BY AVG(rating) DESC) AS rank
+    FROM walmart_db.walmart
+    GROUP BY branch, category
+) ranked
+WHERE rank = 1;
+</pre>
+
+<img src="highest_rated.png" class="rounded-xl mt-4 shadow-lg">
+
+<p class="text-gray-400 mt-2">
+💡 Insight: Food & Beverages consistently has the highest ratings across branches.
+</p>
+
+<h2 class="text-2xl font-semibold mt-10">📅 Busiest Day Analysis</h2>
+
+<p class="text-gray-400 mt-2">
+Determined the busiest day of the week for each branch.
+</p>
+
+<pre class="bg-black p-4 rounded-lg text-green-400 mt-3 overflow-x-auto text-sm">
+SELECT branch, day_name, no_transactions
+FROM (
+    SELECT 
+        branch,
+        DAYNAME(STR_TO_DATE(date, '%d/%m/%Y')) AS day_name,
+        COUNT(*) AS no_transactions,
+        RANK() OVER(PARTITION BY branch ORDER BY COUNT(*) DESC) AS rank
+    FROM walmart_db.walmart
+    GROUP BY branch, day_name
+) ranked
+WHERE rank = 1;
+</pre>
+
+<img src="busiest_day.png" class="rounded-xl mt-4 shadow-lg">
+
+<p class="text-gray-400 mt-2">
+💡 Insight: Weekend days show the highest transaction volume.
+</p>

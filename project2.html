@@ -1,72 +1,130 @@
-<h2 class="text-2xl font-semibold mt-8">💳 Payment Method Analysis</h2>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walmart SQL Analysis</title>
 
-<p class="text-gray-400 mt-2">
-Analyzed number of transactions and quantity sold by each payment method.
-</p>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-<pre class="bg-black p-4 rounded-lg text-green-400 mt-3 overflow-x-auto text-sm">
+<body class="bg-gray-900 text-white">
+
+<!-- HEADER -->
+<div class="max-w-6xl mx-auto px-6 py-10">
+
+  <h1 class="text-4xl font-bold mb-6">
+    🛒 Walmart Sales SQL Analysis
+  </h1>
+
+  <p class="text-gray-400 mb-10">
+    This project analyzes Walmart sales data using SQL to extract business insights.
+  </p>
+
+  <!-- BUTTONS -->
+  <div class="flex gap-4 mb-10">
+    <a href="index.html" class="bg-gray-700 px-5 py-2 rounded-lg hover:bg-gray-600">
+      ← Back
+    </a>
+
+    <a href="https://github.com/atharv100analyst/walmart-sql-data-analysis"
+       target="_blank"
+       class="bg-blue-500 px-5 py-2 rounded-lg hover:bg-blue-600">
+      GitHub Repo
+    </a>
+  </div>
+
+  <!-- ===================== QUERY 1 ===================== -->
+  <div class="bg-gray-800 p-6 rounded-xl mb-10 shadow-lg">
+
+    <h2 class="text-2xl font-semibold mb-3">💳 Payment Method Analysis</h2>
+    <p class="text-gray-400 mb-4">
+      Analyze number of transactions and quantity sold by payment method.
+    </p>
+
+    <!-- SQL BOX -->
+    <pre class="bg-black p-4 rounded-lg text-sm overflow-x-auto text-green-400">
 SELECT 
-    payment_method,
-    COUNT(*) AS no_payments,
-    SUM(quantity) AS no_qty_sold
+  payment_method,
+  COUNT(*) AS no_payments,
+  SUM(quantity) AS no_qty_sold
 FROM walmart_db.walmart
 GROUP BY payment_method;
-</pre>
+    </pre>
 
-<img src="payment_analysis.png" class="rounded-xl mt-4 shadow-lg">
+    <!-- IMAGE -->
+    <img src="payment_analysis.png"
+         class="w-full max-w-3xl mx-auto mt-6 rounded-lg shadow-lg border border-gray-700">
 
-<p class="text-gray-400 mt-2">
-💡 Insight: E-wallet and cash are the most frequently used payment methods.
-</p>
+    <p class="text-gray-400 mt-4">
+      💡 Insight: E-wallet and credit card dominate transactions.
+    </p>
 
-<h2 class="text-2xl font-semibold mt-10">⭐ Highest Rated Category</h2>
+  </div>
 
-<p class="text-gray-400 mt-2">
-Identified top-rated product category in each branch using window functions.
-</p>
+  <!-- ===================== QUERY 2 ===================== -->
+  <div class="bg-gray-800 p-6 rounded-xl mb-10 shadow-lg">
 
-<pre class="bg-black p-4 rounded-lg text-green-400 mt-3 overflow-x-auto text-sm">
+    <h2 class="text-2xl font-semibold mb-3">⭐ Highest Rated Category</h2>
+    <p class="text-gray-400 mb-4">
+      Identify top-rated category in each branch using window functions.
+    </p>
+
+    <pre class="bg-black p-4 rounded-lg text-sm overflow-x-auto text-green-400">
 SELECT branch, category, avg_rating
 FROM (
-    SELECT 
-        branch,
-        category,
-        AVG(rating) AS avg_rating,
-        RANK() OVER (PARTITION BY branch ORDER BY AVG(rating) DESC) AS rank
-    FROM walmart_db.walmart
-    GROUP BY branch, category
+  SELECT 
+    branch,
+    category,
+    AVG(rating) AS avg_rating,
+    RANK() OVER (PARTITION BY branch ORDER BY AVG(rating) DESC) AS rank
+  FROM walmart_db.walmart
+  GROUP BY branch, category
 ) ranked
 WHERE rank = 1;
-</pre>
+    </pre>
 
-<img src="highest_rated.png" class="rounded-xl mt-4 shadow-lg">
+    <img src="highest_rated.png"
+         class="w-full max-w-3xl mx-auto mt-6 rounded-lg shadow-lg border border-gray-700">
 
-<p class="text-gray-400 mt-2">
-💡 Insight: Food & Beverages consistently has the highest ratings across branches.
-</p>
+    <p class="text-gray-400 mt-4">
+      💡 Insight: Certain categories consistently perform best across branches.
+    </p>
 
-<h2 class="text-2xl font-semibold mt-10">📅 Busiest Day Analysis</h2>
+  </div>
 
-<p class="text-gray-400 mt-2">
-Determined the busiest day of the week for each branch.
-</p>
+  <!-- ===================== QUERY 3 ===================== -->
+  <div class="bg-gray-800 p-6 rounded-xl mb-10 shadow-lg">
 
-<pre class="bg-black p-4 rounded-lg text-green-400 mt-3 overflow-x-auto text-sm">
+    <h2 class="text-2xl font-semibold mb-3">📅 Busiest Day Analysis</h2>
+    <p class="text-gray-400 mb-4">
+      Identify busiest day of the week for each branch.
+    </p>
+
+    <pre class="bg-black p-4 rounded-lg text-sm overflow-x-auto text-green-400">
 SELECT branch, day_name, no_transactions
 FROM (
-    SELECT 
-        branch,
-        DAYNAME(STR_TO_DATE(date, '%d/%m/%Y')) AS day_name,
-        COUNT(*) AS no_transactions,
-        RANK() OVER(PARTITION BY branch ORDER BY COUNT(*) DESC) AS rank
-    FROM walmart_db.walmart
-    GROUP BY branch, day_name
+  SELECT 
+    branch,
+    DAYNAME(STR_TO_DATE(date,'%d/%m/%Y')) AS day_name,
+    COUNT(*) AS no_transactions,
+    RANK() OVER (PARTITION BY branch ORDER BY COUNT(*) DESC) AS rank
+  FROM walmart_db.walmart
+  GROUP BY branch, day_name
 ) ranked
 WHERE rank = 1;
-</pre>
+    </pre>
 
-<img src="busiest_day.png" class="rounded-xl mt-4 shadow-lg">
+    <img src="busiest_day.png"
+         class="w-full max-w-3xl mx-auto mt-6 rounded-lg shadow-lg border border-gray-700">
 
-<p class="text-gray-400 mt-2">
-💡 Insight: Weekend days show the highest transaction volume.
-</p>
+    <p class="text-gray-400 mt-4">
+      💡 Insight: Weekends show higher transaction volumes.
+    </p>
+
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -51,41 +51,52 @@
 
   <div class="grid md:grid-cols-2 gap-8">
 
-    <!-- CREDIT CARD -->
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+<!-- CREDIT CARD -->
+<div class="relative group rounded-2xl overflow-hidden bg-gray-800 shadow-lg transition duration-300 hover:scale-110 hover:z-10">
 
-<div class="relative group mb-4 w-full aspect-video overflow-hidden rounded-xl">
+  <!-- MEDIA CONTAINER -->
+  <div class="relative w-full aspect-video overflow-hidden">
 
-  <!-- IMAGE -->
-  <img src="dashboard.png" 
-       class="w-full h-full object-cover transition duration-700 ease-out group-hover:scale-110 group-hover:opacity-0">
+    <!-- IMAGE -->
+    <img src="dashboard.png"
+         class="w-full h-full object-cover transition duration-500 group-hover:opacity-0">
 
-  <!-- VIDEO -->
-  <video 
-    src="preview.mp4"
-    autoplay
-    muted 
-    loop 
-    playsinline
-    class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition duration-700 ease-out group-hover:opacity-100 group-hover:scale-105"
-  ></video>
+    <!-- VIDEO -->
+    <video
+      src="preview.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition duration-500 group-hover:opacity-100">
+    </video>
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+  </div>
+
+  <!-- CONTENT (HIDDEN → SHOW ON HOVER) -->
+  <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition duration-500">
+
+    <h3 class="text-lg font-semibold">Credit Card Analysis</h3>
+    <p class="text-sm text-gray-300">SQL + Power BI dashboard</p>
+
+    <div class="flex gap-3 mt-3">
+      <a href="project1.html"
+         class="bg-blue-500 px-3 py-1 rounded text-sm hover:bg-blue-600">
+        Details
+      </a>
+
+      <button onclick="openVideo('credit')"
+              class="bg-purple-500 px-3 py-1 rounded text-sm hover:bg-purple-600">
+        ▶ Watch
+      </button>
+    </div>
+
+  </div>
 
 </div>
-
-      <h3 class="text-xl font-semibold">Credit Card Analysis</h3>
-      <p class="text-gray-400 mt-2">SQL + Power BI dashboard</p>
-
-      <div class="flex gap-4 mt-4">
-        <a href="project1.html" class="bg-blue-500 px-4 py-2 rounded-lg text-sm">
-          Details
-        </a>
-
-        <button onclick="openVideo('credit')" class="bg-purple-500 px-4 py-2 rounded-lg text-sm">
-          Watch Demo
-        </button>
-      </div>
-
-    </div>
     
 
     <!-- WALMART -->

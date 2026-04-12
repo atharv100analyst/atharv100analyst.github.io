@@ -54,18 +54,19 @@
     <!-- CREDIT CARD -->
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
 
-      <div class="relative group mb-4">
+     <div class="relative group mb-4">
 
   <!-- IMAGE -->
-  <img src="dashboard.png" class="rounded-xl group-hover:hidden">
+  <img src="dashboard.png" class="rounded-xl w-full">
 
-  <!-- VIDEO PREVIEW -->
+  <!-- VIDEO -->
   <video 
     src="preview.mp4" 
+    autoplay
     muted 
     loop 
     playsinline
-    class="rounded-xl hidden group-hover:block"
+    class="absolute top-0 left-0 w-full h-full rounded-xl opacity-0 group-hover:opacity-100 transition duration-300"
   ></video>
 
 </div>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel Automation Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+  <div class="max-w-5xl mx-auto p-6">
+
+    <!-- TITLE -->
+    <h1 class="text-4xl font-bold mb-6">
+      ⚙️ Excel Data Cleaning Automation
+    </h1>
+
+    <!-- MAIN IMAGE -->
+    <div class="w-full rounded-xl overflow-hidden shadow-lg mb-6">
+      <img src="excel_automation.png" class="w-full object-contain">
+    </div>
+
+    <!-- DESCRIPTION -->
+    <p class="text-gray-400 text-lg mb-6">
+      This project focuses on automating data cleaning processes using Excel and Power Query.
+      It transforms raw messy data into structured, analysis-ready datasets efficiently.
+    </p>
+
+    <!-- PROCESS SECTION -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">⚙️ Data Cleaning Process</h2>
+
+      <div class="space-y-6">
+
+        <!-- STEP 1 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">1. Raw Data Import</h3>
+          <img src="step1_raw.png" class="rounded-lg mb-2 border border-gray-700">
+          <p class="text-gray-400 text-sm">
+            Imported raw dataset containing duplicates, missing values, and inconsistent formatting.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">2. Data Cleaning</h3>
+          <img src="step2_cleaning.png" class="rounded-lg mb-2 border border-gray-700">
+          <p class="text-gray-400 text-sm">
+            Removed duplicates, handled missing values, and standardized columns using Power Query.
+          </p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">3. Transformation</h3>
+          <img src="step3_transform.png" class="rounded-lg mb-2 border border-gray-700">
+          <p class="text-gray-400 text-sm">
+            Applied transformations such as column splitting, formatting, and calculated fields.
+          </p>
+        </div>
+
+        <!-- STEP 4 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">4. Final Clean Dataset</h3>
+          <img src="step4_final.png" class="rounded-lg mb-2 border border-gray-700">
+          <p class="text-gray-400 text-sm">
+            Generated a clean and structured dataset ready for analysis and dashboarding.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="flex gap-4 mt-6">
+
+      <!-- WATCH DEMO -->
+      <button onclick="openVideo()" 
+        class="bg-purple-500 px-5 py-2 rounded-lg hover:bg-purple-600">
+        ▶ Watch Demo
+      </button>
+
+      <!-- BACK -->
+      <a href="index.html"
+         class="bg-blue-500 px-5 py-2 rounded-lg hover:bg-blue-600">
+        ← Back
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <div id="videoModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+
+    <div class="bg-gray-900 p-4 rounded-xl w-11/12 md:w-3/4 relative">
+
+      <button onclick="closeVideo()" class="absolute top-2 right-2 text-white text-xl">✖</button>
+
+      <iframe id="videoFrame"
+        class="w-full h-96 rounded-xl"
+        src=""
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function openVideo() {
+      document.getElementById("videoModal").classList.remove("hidden");
+      document.getElementById("videoFrame").src =
+        "https://www.youtube.com/embed/xUKFT5VXxb8?autoplay=1";
+    }
+
+    function closeVideo() {
+      document.getElementById("videoModal").classList.add("hidden");
+      document.getElementById("videoFrame").src = "";
+    }
+  </script>
+
+</body>
+</html>
